@@ -1,0 +1,42 @@
+{
+  "skill_name": "reference-study",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here are three launch videos I love (a.mp4, b.mp4, c.mp4). Make ours feel like these.",
+      "expected_output": "Measures cuts, motion, loudness and tempo of each, makes contact sheets and looks at them, writes REFERENCE.md separating measured values, estimates and creative choices, and turns them into rules for this film.",
+      "assertions": [
+        "Runs measurements on each reference",
+        "Looks at contact sheets or frames",
+        "Separates measured values from estimates",
+        "Gives each reference one job",
+        "Does not copy content or logos"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Why does the Notion launch video feel more cinematic than ours?",
+      "expected_output": "Compares measured arcs (near-silent open, layered build, breath before the product, chapter accents, silence at the end) against ours with the same tools.",
+      "assertions": [
+        "Compares sound arcs with measurements",
+        "Mentions silence or breaths before reveals",
+        "Mentions layering rather than volume alone"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Analyse this X post's video: https://x.com/someone/status/123",
+      "expected_output": "Tries to open it; if it can't play the video, says so and asks for the file (asking before downloading) instead of describing it from guesswork.",
+      "assertions": [
+        "Does not claim to have watched an inaccessible video",
+        "Asks before downloading"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Fix this TypeScript error."
+  ]
+}
