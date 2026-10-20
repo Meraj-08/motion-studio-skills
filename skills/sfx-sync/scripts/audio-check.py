@@ -54,6 +54,8 @@ def main():
     if not a or a[0].startswith("-"):
         print(__doc__); sys.exit(1)
     path = a[0]
+    if not __import__('os').path.isfile(path):
+        sys.exit(f"{path}: file not found")
     x = load(path)
     dur = len(x) / SR
     if len(x) == 0 or np.abs(x).max() < 10 ** (-60 / 20):
@@ -89,7 +91,7 @@ def main():
             flag += "" if share >= 0.5 else "  ← mostly outside 400 Hz–4 kHz (check it on a laptop/phone speaker)"
             print(f"  {label:14s} frame {T:7.3f} · attack {ta:7.3f} (Δ {1000 * (ta - T):+4.0f} ms, +{rise[k]:.0f} dB) · "
                   f"peak {tp:7.3f} (Δ {1000 * (tp - T):+4.0f} ms, {pk:5.1f} dBFS) · 400–4k {100 * share:3.0f} %{flag}")
-        print("  Align clicks/taps by attack, whooshes/swells by peak, risers by their end (see references/sound-and-mix.md).")
+        print("  Align clicks/taps by attack, whooshes/swells by peak, risers by their end (the sfx-sync skill explains why).")
         return
 
     if "--duck" in a:

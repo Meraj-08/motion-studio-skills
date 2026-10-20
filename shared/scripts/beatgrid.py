@@ -113,6 +113,8 @@ def main():
     if not a or a[0].startswith("-"):
         print(__doc__); sys.exit(1)
     path = a[0]
+    if not __import__('os').path.isfile(path):
+        sys.exit(f"{path}: file not found")
     out = a[a.index("--json") + 1] if "--json" in a else None
     hint = float(a[a.index("--bpm") + 1]) if "--bpm" in a else None
 
@@ -151,7 +153,7 @@ def main():
         m = (t >= s) & (t < s + win)
         if m.sum() > fps * 4:
             p, _ = fold_phase(o[m], fps, period)
-            dp = ((p + s - phase + period / 2) % period) - period / 2
+            dp = ((p + s - phase_spec + period / 2) % period) - period / 2      # same method on both sides
             drift.append((round(float(s), 1), round(dp * 1000)))
 
     # loudness and colour per bar, and the biggest bar-to-bar changes (cut candidates)
@@ -191,10 +193,10 @@ def main():
     print(f"  drift per 16 bars (ms vs global phase): " + " ".join(f"{s}s:{d:+d}" for s, d in drift) + "   [|drift| < 15 ms = fixed grid holds]")
     print(f"  music audible until {end_t:.2f} s")
     print(f"  biggest bar-to-bar changes (section cut candidates): " + ", ".join(f"{s:.2f}" for s in sections))
-    lo = min(b["db"] for b in bars) if bars else 0
+    lo = max(min(b["db"] for b in bars), max(b["db"] for b in bars) - 40) if bars else 0   # bars span at most 40 dB
     print("  bar loudness (dB, bar start):")
     for b in bars:
-        print(f"    bar {b['bar']:3d}  {b['t']:7.3f}s  {b['db']:6.1f} dB  {'█' * int(max(0, b['db'] - lo + 1))}  centroid {b['centroid']} Hz")
+        print(f"    bar {b['bar']:3d}  {b['t']:7.3f}s  {b['db']:6.1f} dB  {'█' * min(41, int(max(0, b['db'] - lo + 1)))}  centroid {b['centroid']} Hz")
     if out:
         json.dump(dict(file=name, duration=round(dur, 3), bpm=round(bpm, 3), period=round(period, 5), phase=round(phase, 4),
                        beats=[round(float(b), 3) for b in beats], downbeats=[round(float(b), 3) for b in downbeats],

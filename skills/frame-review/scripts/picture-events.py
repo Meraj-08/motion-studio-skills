@@ -46,10 +46,14 @@ def main():
     if not a or a[0].startswith("-"):
         print(__doc__); sys.exit(1)
     path = a[0]
+    if not __import__('os').path.isfile(path):
+        sys.exit(f"{path}: file not found")
     W, H, fps = probe(path)
     t0 = arg(a, "--from", 0.0, float); t1 = arg(a, "--to", None, float)
     region = arg(a, "--region")
     other = arg(a, "--compare")
+    if other and not __import__('os').path.isfile(other):
+        sys.exit(f"{other}: file not found")
 
     if other:
         A = frames(path, t0, t1); B = frames(other, t0, t1)
