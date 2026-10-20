@@ -1,0 +1,41 @@
+{
+  "skill_name": "footage-cleanup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The phone recording shows the hotspot pill in the status bar. Replace it with a normal Wi-Fi bar.",
+      "expected_output": "Rebuilds the status bar per frame from the frame's background colour plus glyphs from a clean take sampled when it shows them; keeps the time consistent; verifies first and last frames.",
+      "assertions": [
+        "Fills with each frame's own background",
+        "Uses glyphs from a clean take",
+        "Keeps the time consistent",
+        "Verifies frames after"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Use version B before 20 seconds and version A after.",
+      "expected_output": "Finds where the two versions agree with --compare and cuts there; reports the difference value at the cut.",
+      "assertions": [
+        "Uses a frame comparison",
+        "Cuts where frames agree",
+        "Reports the difference at the cut"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Increase the sharpness a little.",
+      "expected_output": "Applies a light luma unsharp mask once on the picture master and re-muxes soundtracks; no 4K render unless asked.",
+      "assertions": [
+        "Uses a light unsharp mask",
+        "Does not jump to a 4K render"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Plan my week."
+  ]
+}

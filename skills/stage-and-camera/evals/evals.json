@@ -1,0 +1,39 @@
+{
+  "skill_name": "stage-and-camera",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The app screen looks flat. Add a background like on our website and maybe a 3D angle.",
+      "expected_output": "Keeps the app UI untouched, offers a still gallery of backgrounds of the same frame, then short motion samples; one 3D angle at most; a plate under fading windows.",
+      "assertions": [
+        "Keeps the app UI untouched",
+        "Shows stills before full renders",
+        "Limits 3D to one moment",
+        "Mentions a plate under fading windows"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make me some original backgrounds in our brand blue.",
+      "expected_output": "Uses wallpapers.py with brand colours to render stills for comparison.",
+      "assertions": [
+        "Uses wallpapers.py or generates original art",
+        "Uses the brand colours"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make a vertical version.",
+      "expected_output": "Reframes type and UI per format from the same timeline instead of cropping the 16:9 render.",
+      "assertions": [
+        "Reframes rather than crops"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Translate this to French."
+  ]
+}

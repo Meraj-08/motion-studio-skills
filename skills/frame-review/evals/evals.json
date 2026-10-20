@@ -1,0 +1,30 @@
+{
+  "skill_name": "frame-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I rendered v3. Is it good?",
+      "expected_output": "Makes contact, phone and strip sheets, looks at them, scores the categories, lists the 3 worst problems with timestamps, and proposes scoped fixes.",
+      "assertions": [
+        "Generates sheets and looks at them",
+        "Scores categories",
+        "Lists three problems with timestamps",
+        "Proposes scoped fixes"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Check the transition at 18 seconds frame by frame.",
+      "expected_output": "Makes a frame strip around 18 s and reports exactly what happens frame by frame (empty frames, jumps, overlaps).",
+      "assertions": [
+        "Uses a frame strip around 18 s",
+        "Reports frame-level findings"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Write a cover letter."
+  ]
+}
