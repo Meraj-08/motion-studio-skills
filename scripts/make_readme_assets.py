@@ -2,6 +2,7 @@
 """Regenerate the README images in assets/ with this repo's own tools (no third-party footage or art).
 
   assets/banner.png       title banner on a generated ribbons background
+  assets/social-preview.png  1280x640 image for GitHub's social preview setting
   assets/backgrounds.jpg  every wallpapers.py preset, labelled
   assets/sfx-timing.png   a sfx-synth.py track: waveform, cue lines and where each sound is aligned
 
@@ -52,6 +53,20 @@ def banner(tmp):
         dt("8 skills  ·  7 tested tools  ·  Claude Code, Codex, Cursor, Copilot, Gemini", 68, 318, 22, "0x8fd3ff", MONO),
     ])
     run(["ffmpeg", "-v", "error", "-y", "-i", bg, "-vf", vf, "-frames:v", "1", OUT / "banner.png"])
+
+
+def social(tmp):
+    """1280x640 image for GitHub's Settings → Social preview (shown when the repo link is shared)."""
+    bg = tmp / "sbg.png"
+    run([PY, S / "wallpapers.py", "--preset", "ribbons-blue", "--size", "1280x640", "--out", bg], stdout=subprocess.DEVNULL)
+    vf = ",".join([
+        "drawbox=x=0:y=0:w=1280:h=640:color=black@0.4:t=fill",
+        dt("Motion Studio Skills", 72, 190, 84, "white", BOLD),
+        dt("Agent skills for launch films, product videos", 76, 312, 36, "0xdce6f5", REG),
+        dt("and motion graphics that look and sound finished", 76, 360, 36, "0xdce6f5", REG),
+        dt("8 skills  ·  7 tested tools  ·  github.com/Meraj-08/motion-studio-skills", 76, 470, 24, "0x8fd3ff", MONO),
+    ])
+    run(["ffmpeg", "-v", "error", "-y", "-i", bg, "-vf", vf, "-frames:v", "1", OUT / "social-preview.png"])
 
 
 def backgrounds(tmp):
@@ -110,8 +125,8 @@ def main():
     OUT.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory() as td:
         t = pathlib.Path(td)
-        banner(t); backgrounds(t); sfx_timing(t)
-    for f in ("banner.png", "backgrounds.jpg", "sfx-timing.png"):
+        banner(t); social(t); backgrounds(t); sfx_timing(t)
+    for f in ("banner.png", "social-preview.png", "backgrounds.jpg", "sfx-timing.png"):
         print(f"assets/{f}  {(OUT / f).stat().st_size // 1024} KB")
 
 
