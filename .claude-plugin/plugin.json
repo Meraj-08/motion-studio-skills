@@ -1,0 +1,14 @@
+{
+  "name": "motion-studio",
+  "description": "Motion, video and audio skills for AI agents: launch films from real product screens, music cut to the picture, frame-accurate sound effects, mixing and mastering, reference studies, frame-by-frame review, footage cleanup, stage and camera.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Md Meraj Alam",
+    "url": "https://github.com/Meraj-08"
+  },
+  "homepage": "https://github.com/Meraj-08/motion-studio-skills",
+  "repository": "https://github.com/Meraj-08/motion-studio-skills",
+  "license": "MIT",
+  "keywords": ["motion-graphics", "video", "audio", "launch-video", "sound-design", "hyperframes", "remotion", "ffmpeg", "music", "mixing"],
+  "skills": "./skills"
+}

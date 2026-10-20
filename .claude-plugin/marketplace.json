@@ -1,0 +1,19 @@
+{
+  "name": "motion-studio-skills",
+  "owner": {
+    "name": "Md Meraj Alam",
+    "url": "https://github.com/Meraj-08"
+  },
+  "metadata": {
+    "description": "Motion, video and audio skills for AI agents: direct a launch film, cut music to picture, sync sound effects, mix and master, study references, review frames, clean footage, stage and camera.",
+    "version": "1.0.0",
+    "repository": "https://github.com/Meraj-08/motion-studio-skills"
+  },
+  "plugins": [
+    {
+      "name": "motion-studio",
+      "description": "8 skills: launch-film-studio, reference-study, music-to-picture, sfx-sync, mix-master, frame-review, footage-cleanup, stage-and-camera. Each ships tested measurement scripts (beat grid, picture events, audio check, review sheets, master/mux, SFX synth, wallpapers).",
+      "source": "./"
+    }
+  ]
+}
