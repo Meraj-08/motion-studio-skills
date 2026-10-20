@@ -1,0 +1,20 @@
+{
+  "name": "motion-studio-skills",
+  "interface": {
+    "displayName": "Motion Studio Skills"
+  },
+  "plugins": [
+    {
+      "name": "motion-studio",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Media"
+    }
+  ]
+}
