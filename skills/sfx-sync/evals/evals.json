@@ -1,0 +1,43 @@
+{
+  "skill_name": "sfx-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The merge sound feels late and I can't hear the typing.",
+      "expected_output": "Measures the merge frame by eye and the sound's attack/peak with audio-check, shifts only that sound; lowers the bed under typing and/or uses clearer recorded or synthesized keys only on frames with characters.",
+      "assertions": [
+        "Measures the frame and the sound's audible point",
+        "Aligns by attack for a click-like sound",
+        "Lowers the music under typing or raises typing",
+        "Keeps one sound per event"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add UI sound effects to this product demo: clicks, typing, a whoosh into each scene.",
+      "expected_output": "Places one sound per event from the event table; clicks on the frame, whooshes peaking 100–250 ms before the cut; checks audibility on small speakers.",
+      "assertions": [
+        "Uses the event table",
+        "Whoosh peaks before the cut",
+        "Checks 400 Hz–4 kHz audibility",
+        "Avoids stacking sounds"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Generate a landing impact and three rising notes for workers appearing at 14.28, 15.57 and 16.72 s.",
+      "expected_output": "Uses sfx-synth.py with an impact (mid layer for laptops) and pluck notes in the track's key on those times, then verifies with audio-check --events.",
+      "assertions": [
+        "Uses sfx-synth.py or equivalent",
+        "Places notes on the given times",
+        "Verifies timing after generating"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Rename these files."
+  ]
+}

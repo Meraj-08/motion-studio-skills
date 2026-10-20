@@ -1,0 +1,42 @@
+{
+  "skill_name": "music-to-picture",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Fit this track (track.mp3) to my 60-second product video. Drop should land when the user clicks Send at 12.9 s.",
+      "expected_output": "Measures the track's tempo, phase, downbeats and sections with beatgrid.py, cuts it on its own downbeats with segments anchored to the picture events, and checks every seam.",
+      "assertions": [
+        "Measures tempo and downbeats before cutting",
+        "Anchors the drop to 12.9 s",
+        "Cuts on downbeats, does not stretch to fit",
+        "Checks seams by listening or measurement"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The music sounds monotonic.",
+      "expected_output": "Explains monotony as repeated bars / no chord change / no new instruments, measures it, and proposes a produced track with sections cut to the story rather than volume automation.",
+      "assertions": [
+        "Does not only change volume",
+        "Mentions chord or section changes",
+        "Measures the current music"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Slow the music down a little but keep the drop and the merge hit where they are.",
+      "expected_output": "Time-stretches with pitch kept (rubberband) and re-anchors each segment on its sync point; verifies the hits stayed on their frames.",
+      "assertions": [
+        "Keeps pitch while slowing",
+        "Re-anchors the hits",
+        "Verifies after the change"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Summarize this PDF."
+  ]
+}

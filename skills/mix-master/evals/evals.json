@@ -1,0 +1,40 @@
+{
+  "skill_name": "mix-master",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The background music is too loud; make it a bit lower and the effects a bit louder.",
+      "expected_output": "Changes music and effects gains by measured amounts, re-masters, and reports both the stem change and the final-mix change (loudness normalization), without touching the picture.",
+      "assertions": [
+        "Reports stem and final-mix changes separately",
+        "Does not re-encode the picture",
+        "Keeps other sections unchanged"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Master this for Instagram and X.",
+      "expected_output": "Two-pass loudness normalization to about −14 LUFS and ≤ −1 dBTP, muxed with the video stream copied, plus a small review copy.",
+      "assertions": [
+        "Targets about −14 LUFS",
+        "Keeps true peak at or below −1 dBTP",
+        "Copies the video stream"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "It sounds flat from 13 to 50 seconds.",
+      "expected_output": "Adds headline markers on beats near scene changes and checks dynamics, rather than only raising volume.",
+      "assertions": [
+        "Proposes markers or section changes",
+        "Measures dynamics"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Set up a Postgres database."
+  ]
+}
