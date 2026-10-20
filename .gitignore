@@ -8,3 +8,4 @@ review/
 *.wav
 *.mov
 !examples/**/*.mp4
+dist/
