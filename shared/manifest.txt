@@ -1,0 +1,9 @@
+# skill: scripts it ships (copied from shared/scripts by scripts/sync_shared.py; edit only shared/scripts)
+launch-film-studio: beatgrid.py picture-events.py audio-check.py review-sheets.sh master-mux.sh
+reference-study: picture-events.py beatgrid.py audio-check.py review-sheets.sh
+music-to-picture: beatgrid.py audio-check.py
+sfx-sync: sfx-synth.py audio-check.py picture-events.py
+mix-master: audio-check.py master-mux.sh
+frame-review: review-sheets.sh picture-events.py
+footage-cleanup: picture-events.py review-sheets.sh master-mux.sh
+stage-and-camera: wallpapers.py review-sheets.sh
