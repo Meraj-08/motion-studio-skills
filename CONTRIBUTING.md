@@ -32,8 +32,11 @@ python3 scripts/validate_skills.py       # spec, links, evals, shared copies, pr
 python3 scripts/smoke_test.py            # every script, end to end, on generated media
 ```
 
-Add a line to `CHANGELOG.md` and bump the version in both `.claude-plugin/plugin.json` and
-`.claude-plugin/marketplace.json` (the validator checks they match).
+Add a line to `CHANGELOG.md` and bump the version in `.claude-plugin/plugin.json`,
+`.claude-plugin/marketplace.json` and `.codex-plugin/plugin.json` (the validator checks they match). Pushing a `vX.Y.Z`
+tag runs the release workflow, which validates, smoke-tests and attaches one zip per skill to the GitHub release.
+
+To regenerate the README images: `python3 scripts/make_readme_assets.py`.
 
 ## Writing a good skill
 
