@@ -1,0 +1,45 @@
+{
+  "skill_name": "launch-film-studio",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make a 30-second launch video for our app from these screen recordings: rec1.mp4, rec2.mp4. Here's our site: https://example.com",
+      "expected_output": "Collects inputs (story, formats, music, brand), plans with gates, studies references, writes BRIEF.md and a shot list for approval before building; uses only the real recordings.",
+      "assertions": [
+        "Asks for or confirms the one story / feature to show",
+        "Proposes a brief or shot list before rendering",
+        "Says it will use the real recordings, not redrawn UI",
+        "Plans a measured event table from the render",
+        "Mentions music licensing"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "v12 is approved. At 44 s the music hits too hard and the merge sound is a bit late. Fix it.",
+      "expected_output": "Treats it as a revision round: measures what peaks at 44 s and the merge frame, changes only those, keeps everything else bit-identical, reports before/after numbers in a new version.",
+      "assertions": [
+        "Measures the 44 s moment before changing it",
+        "Checks the merge frame on the picture",
+        "Changes only the two things named",
+        "Creates a new version instead of overwriting v12",
+        "Reports measured before/after numbers"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Give me three music versions of the same launch film with different licensed tracks.",
+      "expected_output": "Renders the picture once and muxes one soundtrack per version; measures and cuts each track to the same story points; records licences.",
+      "assertions": [
+        "Renders once and muxes per track",
+        "Cuts each track to the same story points",
+        "Records each track's licence or credit line"
+      ],
+      "files": []
+    }
+  ],
+  "should_not_trigger": [
+    "Write a SQL query that lists users by signup date."
+  ]
+}
