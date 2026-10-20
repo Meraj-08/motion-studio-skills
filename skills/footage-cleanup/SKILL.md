@@ -7,6 +7,11 @@ description: >
   sharpen the final picture lightly. Use when footage shows glitches, a status bar or notification that shouldn't be
   there, a jump between recordings, an empty-looking screen, soft text, or when two versions must be combined.
 license: MIT
+compatibility: Needs ffmpeg/ffprobe, bash and Python 3 with numpy.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Footage cleanup

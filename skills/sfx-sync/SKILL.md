@@ -7,6 +7,11 @@ description: >
   "sounds overlap", "too many whooshes", wants UI foley for a product video, or needs effects generated in code.
   Verifies timing with an attack/peak report against the picture's event table.
 license: MIT
+compatibility: Needs ffmpeg and Python 3 with numpy.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # SFX sync

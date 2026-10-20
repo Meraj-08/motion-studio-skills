@@ -7,6 +7,11 @@ description: >
   theirs feel better", "analyse how they used sound", or before writing a brief for a new film. Produces
   docs/REFERENCE.md with measured values, estimates and creative choices kept separate.
 license: MIT
+compatibility: Needs ffmpeg/ffprobe and Python 3 with numpy to measure videos; an image-capable model to read contact sheets.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Reference study

@@ -8,6 +8,11 @@ description: >
   versions of one picture, says the music is "monotonic", "not smooth", "off-theme" or "too loud at 44 s", or asks
   which licensed track fits.
 license: MIT
+compatibility: Needs ffmpeg and Python 3 with numpy; rubberband (CLI) for tempo changes with pitch kept.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Music to picture

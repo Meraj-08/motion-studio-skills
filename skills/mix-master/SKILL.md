@@ -7,6 +7,11 @@ description: >
   says the background is too loud, "44 s hits too hard", "make it quieter here", "it sounds flat", "louder for
   social", or wants a soundtrack muxed onto a rendered video, and when reporting before/after numbers.
 license: MIT
+compatibility: Needs ffmpeg/ffprobe (with loudnorm and ebur128 filters), bash and Python 3 with numpy.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Mix and master

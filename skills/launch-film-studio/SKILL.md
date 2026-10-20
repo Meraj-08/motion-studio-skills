@@ -9,6 +9,11 @@ description: >
   sets the gates and routes to the other motion-studio skills (reference-study, music-to-picture, sfx-sync,
   mix-master, frame-review, footage-cleanup, stage-and-camera).
 license: MIT
+compatibility: Works with any agent that can run shell commands. Scripts need ffmpeg/ffprobe and Python 3 with numpy. Pairs with a composition framework such as HyperFrames or Remotion.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Launch film studio

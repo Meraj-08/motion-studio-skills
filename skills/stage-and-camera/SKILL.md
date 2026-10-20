@@ -7,6 +7,11 @@ description: >
   someone says the screen looks flat or empty, wants a modern or 3D look, a website-style background behind the app,
   "something like Apple", smoother camera moves, or vertical versions.
 license: MIT
+compatibility: Needs ffmpeg and Python 3 with numpy and scipy for generated backgrounds.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Stage and camera

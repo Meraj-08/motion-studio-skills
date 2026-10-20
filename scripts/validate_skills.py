@@ -59,7 +59,16 @@ def check_skill(d):
     if meta.get("name") != name:
         err(f"{name}: frontmatter name {meta.get('name')!r} must equal the folder name")
     if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name) or len(name) > 64:
-        err(f"{name}: name must be lowercase letters, digits and single hyphens, ≤ 64 chars")
+        err(f"{name}: name must be lowercase letters, digits and single hyphens (no leading, trailing or double), ≤ 64 chars")
+    comp = meta.get("compatibility", "")
+    if comp and len(comp) > 500:
+        err(f"{name}: compatibility is {len(comp)} chars (max 500)")
+    if not comp:
+        warn(f"{name}: no compatibility field (say what the scripts need: ffmpeg, Python, …)")
+    allowed = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
+    for k in meta:
+        if k not in allowed:
+            err(f"{name}: unknown frontmatter field {k!r} (spec allows {', '.join(sorted(allowed))})")
     desc = meta.get("description", "")
     if not desc:
         err(f"{name}: description is empty")
@@ -146,6 +155,14 @@ def plugin():
     mv = (mj.get("metadata") or {}).get("version")
     if pj.get("version") != mv:
         err(f"plugin: plugin.json version {pj.get('version')} ≠ marketplace.json version {mv}")
+    cx = ROOT / ".codex-plugin" / "plugin.json"
+    if cx.exists():
+        cv = json.loads(cx.read_text()).get("version")
+        if cv != pj.get("version"):
+            err(f"plugin: .codex-plugin/plugin.json version {cv} ≠ {pj.get('version')}")
+    ag = ROOT / ".agents" / "plugins" / "marketplace.json"
+    if ag.exists():
+        json.loads(ag.read_text())
     for pl in mj.get("plugins", []):
         for s in pl.get("skills", []):
             if not (ROOT / s / "SKILL.md").exists():

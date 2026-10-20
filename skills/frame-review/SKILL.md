@@ -7,6 +7,11 @@ description: >
   motion graphic, launch film or product video, when someone says "it looks mid", "5/10", "make it 90", "check the
   transition at 18 s", or before sending a version for review.
 license: MIT
+compatibility: Needs ffmpeg/ffprobe, bash and Python 3 with numpy; an image-capable model to read the sheets.
+metadata:
+  author: Md Meraj Alam
+  version: "1.0.0"
+  repository: https://github.com/Meraj-08/motion-studio-skills
 ---
 
 # Frame review
