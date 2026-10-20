@@ -1,0 +1,27 @@
+name: Bug report
+description: A script fails, measures something wrong, or a skill gives bad guidance
+labels: [bug]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Skill or script
+      options: [launch-film-studio, reference-study, music-to-picture, sfx-sync, mix-master, frame-review, footage-cleanup, stage-and-camera, beatgrid.py, picture-events.py, audio-check.py, review-sheets.sh, master-mux.sh, sfx-synth.py, wallpapers.py, other]
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command or prompt, the output, and what you expected instead.
+      render: text
+    validations: { required: true }
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: macOS 15 / Ubuntu 24.04 · ffmpeg 7.1 · Python 3.12 · Claude Code / Codex / Cursor …
+  - type: textarea
+    id: media
+    attributes:
+      label: Media details (optional)
+      description: Duration, fps, resolution, audio format. Please don't attach footage or music you can't share.

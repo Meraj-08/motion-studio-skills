@@ -1,0 +1,19 @@
+name: Skill or improvement idea
+description: A new skill, a better rule, or a reference film worth studying
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What went wrong in a real video project? A review note ("the transition at 18 s isn't smooth") is ideal.
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes:
+      label: The rule, skill or measurement you'd add
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: A measurement, a reference film (technique only), or a before/after that shows it works.
