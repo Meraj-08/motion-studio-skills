@@ -1,0 +1,3 @@
+# Python helpers in skills/*/scripts. Also needs ffmpeg + ffprobe on PATH (brew install ffmpeg / apt install ffmpeg).
+numpy>=1.24
+scipy>=1.10   # wallpapers.py only
